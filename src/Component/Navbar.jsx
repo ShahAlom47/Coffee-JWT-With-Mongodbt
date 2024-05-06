@@ -27,7 +27,7 @@ const Navbar = () => {
            <NavLink to={'/users'}><button className="btn btn-link"> Users </button></NavLink>
            <NavLink to={'/register'}><button className="btn btn-link"> Register </button></NavLink>
            <NavLink to={'/login'}><button className="btn btn-link"> Login </button></NavLink>
-           <NavLink ><button onClick={ handelLogOut} className="btn btn-error"> Login </button></NavLink>
+           <NavLink ><button onClick={ handelLogOut} className="btn btn-error"> LogOut </button></NavLink>
             <h1 className=" bg-slate-200 p-3 rounded-md">{user?.email}</h1>
            
            </div>

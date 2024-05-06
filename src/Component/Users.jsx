@@ -1,6 +1,6 @@
 import Navbar from "./Navbar";
 import { useContext, useEffect, useState } from "react";
-import axios from "axios";
+
 import { AuthContext } from "../AuthProvider";
 import useAxiosSecure from "../CustomHocks/useAxiosSecure";
 
