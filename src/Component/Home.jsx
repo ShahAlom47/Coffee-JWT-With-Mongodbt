@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2'
+import useAxiosSecure from "../CustomHocks/useAxiosSecure";
 
 // or via CommonJS
 // const Swal = require('sweetalert2')
@@ -12,17 +13,18 @@ const Home = () => {
 
 const [uiUpdate,setUiUpdate]=useState('')
     const [coffeeData, setCoffeeData] = useState([]);
+    const axiosSecure = useAxiosSecure()
     useEffect(() => {
 
         // fetch('http://localhost:3000/coffee')
         //     .then(res => res.json())
         //     .then(data => setCoffeeData(data))
 
-        axios.get('http://localhost:3000/coffee')
+        axiosSecure.get('/coffee')
         .then(res=>{
             setCoffeeData(res.data)
         })
-    }, [uiUpdate])
+    }, [uiUpdate,axiosSecure])
 
     console.log(coffeeData);
 

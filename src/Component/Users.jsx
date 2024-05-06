@@ -2,16 +2,18 @@ import Navbar from "./Navbar";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../AuthProvider";
+import useAxiosSecure from "../CustomHocks/useAxiosSecure";
 
 
 const Users = () => {
     const {user}=useContext(AuthContext);
    console.log(user.email);
     const [users,setUsers]=useState([])
+    const axiosSecure = useAxiosSecure();
 
    useEffect(()=>{
     if(user){
-        axios.get(`http://localhost:3000/user/${user?.email}`)
+        axiosSecure.get(`/user/${user?.email}`)
     .then(res=>{
         setUsers(res.data)
     })
@@ -22,7 +24,7 @@ const Users = () => {
 
     }
     
-   },[])
+   },[user,axiosSecure])
 
 
 
